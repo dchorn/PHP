@@ -4,8 +4,12 @@
 // (per get), a la mateixa pàgina es mostraran les dades enviades i un altre camp amb 
 // el nom complet formatat amb cada paraula amb la inicial en majúscules. 
 
+$formMethod = "get";
+$formInput  = ($formMethod=="get") ? INPUT_POST : INPUT_GET;
+
 ?>
 
+<!DOCTYPE html>
 <html lang="es">
     <head>
         <title>Formulario Nombre</title>
@@ -16,8 +20,14 @@
         </style>
     </head>
     <body>
-        <form>
-        <fieldset>Formulario Nombre</fieldset>
+    <form name="nombre-form" method="<?php echo $formMethod?>" action="<?php echo htmlentities($_SERVER["PHP_SELF"]);?>">
+            <fieldset>Formulario Nombre</fieldset>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre"></input><br>
+            <label for="apellido">Apellido</label>
+            <input type="text" name="apellido" id="apellido"></input><br>
+            <input type="submit" name="submit" id="submit"></input>
+            <input type="reset" id="reset"></input>
         </form>
     </body>
 </html>
