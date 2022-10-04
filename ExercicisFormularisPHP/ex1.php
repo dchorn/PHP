@@ -6,7 +6,6 @@
 
 $formMethod = "get";
 $formInput  = ($formMethod=="get") ? INPUT_POST : INPUT_GET;
-
 ?>
 
 <!DOCTYPE html>
@@ -31,3 +30,20 @@ $formInput  = ($formMethod=="get") ? INPUT_POST : INPUT_GET;
         </form>
     </body>
 </html>
+
+<?php
+if (isset($_REQUEST["nombre"])) {  //check if form has been sent.
+    $req = $_REQUEST["nombre"];
+    echo "<p>Tu nombre es: " . $req . "</p>";
+}
+
+if (isset($_REQUEST["apellido"])) {  //check if form has been sent.
+    $req = $_REQUEST["apellido"];
+    echo "<p>Tu apellido es: " . $req . "</p>";
+}
+
+if (isset($_REQUEST["apellido"]) && isset($_REQUEST["apellido"])) {
+    $nombre = $_REQUEST["nombre"];
+    $apellido = $_REQUEST["apellido"];    
+    echo "<p>Tu nombre completo es: " . ucfirst($nombre) . " " .  ucfirst($apellido) . "</p>";
+}
